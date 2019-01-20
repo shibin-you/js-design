@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>灵活的JavaScript | javascript design</title>
+    <meta name="description" content="javascript design">
+    <link rel="icon" href="/jsDesign/logo.png">
+    
+    <link rel="preload" href="/jsDesign/assets/css/0.styles.ba8b9971.css" as="style"><link rel="preload" href="/jsDesign/assets/js/app.2757a334.js" as="script"><link rel="preload" href="/jsDesign/assets/js/4.faa123e5.js" as="script"><link rel="prefetch" href="/jsDesign/assets/js/2.62a487bf.js"><link rel="prefetch" href="/jsDesign/assets/js/3.ce7845ce.js"><link rel="prefetch" href="/jsDesign/assets/js/5.cd90bc64.js"><link rel="prefetch" href="/jsDesign/assets/js/6.98515d2f.js"><link rel="prefetch" href="/jsDesign/assets/js/7.df7ce8ba.js">
+    <link rel="stylesheet" href="/jsDesign/assets/css/0.styles.ba8b9971.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/jsDesign/" class="home-link router-link-active"><!----> <span class="site-name">javascript design</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>第一章</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/jsDesign/book/1/1.html" class="active sidebar-link">灵活的JavaScript</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jsDesign/book/1/2.html" class="sidebar-link">面向对象编程</a></li><li><a href="/jsDesign/book/1/3.html" class="sidebar-link">继承</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>第二章</span> <!----></p> <ul class="sidebar-group-items"></ul></div></li></ul> </div> <div class="page"> <div class="content"><h3 id="灵活的javascript"><a href="#灵活的javascript" aria-hidden="true" class="header-anchor">#</a> 灵活的JavaScript</h3> <h3 id="一个检测类"><a href="#一个检测类" aria-hidden="true" class="header-anchor">#</a> 一个检测类</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> <span class="token function-variable function">CheckRules</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+CheckRules<span class="token punctuation">.</span><span class="token function-variable function">checkUsername</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'checkUsername'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+CheckRules<span class="token punctuation">.</span><span class="token function-variable function">checkPassword</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'checkPassword'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+checkRules<span class="token punctuation">.</span><span class="token function">checkUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+checkRules<span class="token punctuation">.</span><span class="token function">checkPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>上面的写法每次new创建对象的时候，新创建的对象都会对类的this属性进行复制，会造成一定的消耗，可以改成下面的写法</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>CheckRules<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">checkUsername</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'checkUsername'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+CheckRules<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">checkPassword</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'checkPassword'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+checkRules<span class="token punctuation">.</span><span class="token function">checkUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+checkRules<span class="token punctuation">.</span><span class="token function">checkPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><ul><li>链式添加</li></ul> <p>上面的写法，调用2个方法，对象写了2次，这样的写法是可以避免的。可以将每一个方法的末尾将当前的对象this返回</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> <span class="token function-variable function">CheckRules</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+CheckRules<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">checkUsername</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'checkUsername'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span>
+<span class="token punctuation">}</span>
+CheckRules<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">checkPassword</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'checkPassword'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span>
+<span class="token punctuation">}</span>
+checkRules<span class="token punctuation">.</span><span class="token function">checkUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">checkPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="函数的祖先"><a href="#函数的祖先" aria-hidden="true" class="header-anchor">#</a> 函数的祖先</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">addMethods</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> fn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> fn
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">===</span> Methods<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">var</span> <span class="token function-variable function">Methods</span> <span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+Methods<span class="token punctuation">.</span><span class="token function">addMethods</span><span class="token punctuation">(</span><span class="token string">'sayName'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'sayName:'</span> <span class="token operator">+</span> name<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">addMethods</span><span class="token punctuation">(</span><span class="token string">'saySex'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>sex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saySex:'</span> <span class="token operator">+</span> sex<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Methods<span class="token punctuation">)</span>
+
+Methods<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token string">'shibin'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">saySex</span><span class="token punctuation">(</span><span class="token string">'boy'</span><span class="token punctuation">)</span>
+</code></pre></div><ul><li>类的方式</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code>Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">addMethods</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> fn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>prototype<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> fn
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">===</span> Methods<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">var</span> <span class="token function-variable function">Methods</span> <span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+Methods<span class="token punctuation">.</span><span class="token function">addMethods</span><span class="token punctuation">(</span><span class="token string">'sayName'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'sayName:'</span> <span class="token operator">+</span> name<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">addMethods</span><span class="token punctuation">(</span><span class="token string">'saySex'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>sex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'saySex:'</span> <span class="token operator">+</span> sex<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> method<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Methods</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+method<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token string">'shibin'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">saySex</span><span class="token punctuation">(</span><span class="token string">'boy'</span><span class="token punctuation">)</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/jsDesign/book/1/2.html">
+          面向对象编程
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/jsDesign/assets/js/app.2757a334.js" defer></script><script src="/jsDesign/assets/js/4.faa123e5.js" defer></script>
+  </body>
+</html>
