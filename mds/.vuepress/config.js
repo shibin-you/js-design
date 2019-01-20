@@ -2,7 +2,7 @@ const resolve=d=>require('path').resolve(__dirname,d)
 module.exports = {
   title: 'javascript design',
   description: 'javascript design',
-  base: '/jsDesign/',
+  base: '/js-design/',
   dest:resolve('../../docs'),
   head: [
          ['link', { rel: 'icon', href: `/logo.png` }]
