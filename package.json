@@ -1,0 +1,28 @@
+{
+  "name": "js-design",
+  "version": "1.0.0",
+  "description": "js design",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"npm run dev",
+    "dev":"npx vuepress dev docs",
+    "build": "vuepress build mds"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shibin-you/js-design.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "shibin-you",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shibin-you/js-design/issues"
+  },
+  "homepage": "https://github.com/shibin-you/js-design#readme"
+}
