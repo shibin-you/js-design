@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+  var LoginAlert = function(text) {
+    this.content = text
+  }
+  LoginAlert.prototype.show = function() {
+    //显示警告框
+  }
+  var LoginConfirm = function(text) {
+    this.content = text
+  }
+  LoginConfirm.prototype.show = function(text) {
+    //显示确认框
+  }
+  var passALert = new LoginAlert('密码不正确')
+  passALert.show()
+
+  var loginfailConfirm = new LoginConfirm('用户名不存在，请重新输入或注册')
+  passALert.show()
+  var PopFactary = function(name, text) {
+    switch (name) {
+      case 'alert':
+        return new LoginAlert(text);
+      case 'confirm':
+        return new LoginConfirm(text)
+    }
+  }
+
+  function createPop(type, text) {
+    var o = new Object()
+    o.content = text
+    o.show = function() {
+
+    }
+    // 差异方法
+    if (type === 'alert') {
+
+    } else if (type === 'confirm') {
+
+    }
+    return o
+  }
+  var Factory = function(type, content) {
+    if (this instanceof Factory) {
+      var s = new this[type](content)
+      return s
+    } else {
+      return new Factory(type, content)
+    }
+  }
+  // 工厂原型中创建所有类型数据对象的基类
+  Factory.prototype = {
+    Java: function(content) {
+
+    },
+    Javascript: function(content) {
+
+    },
+    Php: function(content) {
+
+    },
+    Python: function(content) {
+
+    }
+  }
+  var data = [{
+    type: 'Javascript',
+    content: 'Javascript哪家强'
+  }, {
+    type: 'Php',
+    content: 'Php哪家强'
+  }, {
+    type: 'Java',
+    content: 'Java哪家强'
+  }, {
+    type: 'Python',
+    content: 'Python哪家强'
+  }]
+  for (var i = 0; i < data.length; i++) {
+    Factory(data[i].type, data[i].content)
+  }
+</script>
+
+</html>

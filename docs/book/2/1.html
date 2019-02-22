@@ -3,19 +3,104 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>简单工厂模式 | javascript design</title>
+    <title>工厂模式 | javascript design</title>
     <meta name="description" content="javascript design">
     <link rel="icon" href="/js-design/logo.png">
     
-    <link rel="preload" href="/js-design/assets/css/0.styles.9adffb95.css" as="style"><link rel="preload" href="/js-design/assets/js/app.a2dcf1ce.js" as="script"><link rel="preload" href="/js-design/assets/js/7.d2c74b80.js" as="script"><link rel="prefetch" href="/js-design/assets/js/2.196d9b89.js"><link rel="prefetch" href="/js-design/assets/js/3.aaa4887c.js"><link rel="prefetch" href="/js-design/assets/js/4.ec463903.js"><link rel="prefetch" href="/js-design/assets/js/5.bbb6216b.js"><link rel="prefetch" href="/js-design/assets/js/6.cee0df87.js"><link rel="prefetch" href="/js-design/assets/js/8.35838317.js">
+    <link rel="preload" href="/js-design/assets/css/0.styles.9adffb95.css" as="style"><link rel="preload" href="/js-design/assets/js/app.9afce890.js" as="script"><link rel="preload" href="/js-design/assets/js/7.2c367ed1.js" as="script"><link rel="prefetch" href="/js-design/assets/js/2.196d9b89.js"><link rel="prefetch" href="/js-design/assets/js/3.aaa4887c.js"><link rel="prefetch" href="/js-design/assets/js/4.bb3c2270.js"><link rel="prefetch" href="/js-design/assets/js/5.b6838dd7.js"><link rel="prefetch" href="/js-design/assets/js/6.014f200f.js"><link rel="prefetch" href="/js-design/assets/js/8.35838317.js">
     <link rel="stylesheet" href="/js-design/assets/css/0.styles.9adffb95.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/js-design/" class="home-link router-link-active"><!----> <span class="site-name">javascript design</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>第一章</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/js-design/book/1/1.html" class="sidebar-link">灵活的JavaScript</a></li><li><a href="/js-design/book/1/2.html" class="sidebar-link">原型链</a></li><li><a href="/js-design/book/1/3.html" class="sidebar-link">面向对象编程</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>第二章</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/js-design/book/2/1.html" class="active sidebar-link">简单工厂模式</a><ul class="sidebar-sub-headers"></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h3 id="简单工厂模式"><a href="#简单工厂模式" aria-hidden="true" class="header-anchor">#</a> 简单工厂模式</h3></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/js-design/" class="home-link router-link-active"><!----> <span class="site-name">javascript design</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>第一章</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/js-design/book/1/1.html" class="sidebar-link">灵活的JavaScript</a></li><li><a href="/js-design/book/1/2.html" class="sidebar-link">原型链</a></li><li><a href="/js-design/book/1/3.html" class="sidebar-link">面向对象编程</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>第二章</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/js-design/book/2/1.html" class="active sidebar-link">工厂模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/js-design/book/2/1.html#简单工厂模式" class="sidebar-link">简单工厂模式</a></li><li class="sidebar-sub-header"><a href="/js-design/book/2/1.html#工厂方法模式" class="sidebar-link">工厂方法模式</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="工厂模式"><a href="#工厂模式" aria-hidden="true" class="header-anchor">#</a> 工厂模式</h1> <h2 id="简单工厂模式"><a href="#简单工厂模式" aria-hidden="true" class="header-anchor">#</a> 简单工厂模式</h2> <p>先写一个简单的登陆提示</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 警告框</span>
+<span class="token keyword">var</span> <span class="token function-variable function">LoginAlert</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>content <span class="token operator">=</span> text
+<span class="token punctuation">}</span>
+LoginAlert<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">show</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//显示警告框</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 确认框</span>
+<span class="token keyword">var</span> <span class="token function-variable function">LoginConfirm</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>content <span class="token operator">=</span> text
+<span class="token punctuation">}</span>
+LoginConfirm<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">show</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//显示确认框</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">var</span> passALert <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LoginAlert</span><span class="token punctuation">(</span><span class="token string">'密码不正确'</span><span class="token punctuation">)</span>
+passALert<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> loginfailConfirm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LoginConfirm</span><span class="token punctuation">(</span><span class="token string">'用户名不存在，请重新输入或注册'</span><span class="token punctuation">)</span>
+passALert<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre></div><p>上面调用有些麻烦，每次都要new,，使用下面方法进行改造</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> <span class="token function-variable function">PopFactary</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'alert'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">LoginAlert</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'confirm'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">LoginConfirm</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>上面两个类有相同的地方，是可以抽象出来共用的</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">createPop</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> text<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> o <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  o<span class="token punctuation">.</span>content <span class="token operator">=</span> text
+  o<span class="token punctuation">.</span><span class="token function-variable function">show</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 差异方法</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'alert'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'confirm'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> o
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="工厂方法模式"><a href="#工厂方法模式" aria-hidden="true" class="header-anchor">#</a> 工厂方法模式</h2> <p>工厂方法的本意是将创建对象的工作推迟到子类当中</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> <span class="token function-variable function">Factory</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">Factory</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">this</span><span class="token punctuation">[</span>type<span class="token punctuation">]</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> s
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Factory</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 工厂原型中创建所有类型数据对象的基类</span>
+Factory<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">{</span>
+  Java<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  Javascript<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  Php<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  Python<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">'Javascript'</span><span class="token punctuation">,</span>
+  content<span class="token punctuation">:</span> <span class="token string">'Javascript哪家强'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">'Php'</span><span class="token punctuation">,</span>
+  content<span class="token punctuation">:</span> <span class="token string">'Php哪家强'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">'Java'</span><span class="token punctuation">,</span>
+  content<span class="token punctuation">:</span> <span class="token string">'Java哪家强'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">'Python'</span><span class="token punctuation">,</span>
+  content<span class="token punctuation">:</span> <span class="token string">'Python哪家强'</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> data<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">Factory</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>type<span class="token punctuation">,</span> data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/js-design/book/1/3.html" class="prev">
           面向对象编程
         </a></span> <!----></p></div> </div> <!----></div></div>
-    <script src="/js-design/assets/js/app.a2dcf1ce.js" defer></script><script src="/js-design/assets/js/7.d2c74b80.js" defer></script>
+    <script src="/js-design/assets/js/app.9afce890.js" defer></script><script src="/js-design/assets/js/7.2c367ed1.js" defer></script>
   </body>
 </html>
