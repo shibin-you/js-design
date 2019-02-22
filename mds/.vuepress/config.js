@@ -31,6 +31,14 @@ module.exports = {
             'book/2/2.md'
           ]
         },
+        {
+          title: '框架',
+          collapsable: false,
+          children: [
+            'book/m/mvvm.md',
+            'book/m/mvc.md',
+          ]
+        },
       ]
     }
   }
