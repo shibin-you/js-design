@@ -27,7 +27,8 @@ module.exports = {
           title: '第二章',
           collapsable: false,
           children: [
-            'book/2/1.md'
+            'book/2/1.md',
+            'book/2/2.md'
           ]
         },
       ]
