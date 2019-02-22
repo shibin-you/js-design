@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"npm run dev",
-    "dev":"npx vuepress dev mds",
+    "start": "npm run dev",
+    "dev": "npx vuepress dev mds",
     "build": "vuepress build mds"
   },
   "repository": {
