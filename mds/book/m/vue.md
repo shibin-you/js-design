@@ -1,26 +1,35 @@
 # 实现一个简单的vue
+
 以下仅仅实现了vue里非常简单的功能
+
 ```javascript
+function query(el) {
+  if (typeof el === 'string') {
+    const selected = document.querySelector(el)
+    if (!selected) {
+      return document.createElement('div')
+    }
+    return selected
+  } else {
+    return el
+  }
+}
+
 function Vue(options) {
   let vm = this
   vm._data = options.data
   vm.$el = options.el && query(options.el)
   initData(vm)
-  // initMethods()
   this.methods = options.methods
   observe(vm._data)
   new Compile(vm)
 }
-new Vue({
-  el:"#app",
-  data:{
-    name:'shibin'
-  }
-})
 ```
-### 第一步：initData
+
+## 第一步：initData
 
 将options的data数据挂载到实例的对象上
+
 ```javascript
 function initData(vm) {
   const sharedPropertyDefinition = {
@@ -42,9 +51,12 @@ function initData(vm) {
   }
 }
 ```
-### 第二步：observe
+
+## 第二步：observe
+
 Observer中的defineReactive方法中，获取vm实例的data时，当Dep.target存在时，就会把Dep.target添加到观察者列表中，Dep.target就是Watcher的实例，
 当data数据发生改变时，通知观察列表进行数据更新
+
 ```javascript
 //监听数据的改变
 function observe(data) {
@@ -105,11 +117,12 @@ Dep.prototype = {
     })
   }
 }
-
 ```
+
 当实例化Watcher时，会执行Watcher下的get方法，此时便会将实例化的对象赋值给Dep.target,然后强制执行Observer里的get函数,将当前的观察对象添加到观察者列表中
 
 调用实例化的Watcher对象中的update方法，会执行实例化Watcher对象时传入的回调函数，这个回调函数就是更新页面显示用的。这样就实现了数据改变，页面相应的元素自动改变
+
 ```javascript
 function Watcher(vm, exp, cb) {
   this.vm = vm
@@ -135,13 +148,17 @@ Watcher.prototype = {
   }
 }
 ```
-### 第三步：compile
+
+## 第三步：compile
+
 编译过程中
-* 1、创建一个空的fragment，将模板元素添加到fragement上
-* 2、将fragement的上的元素进行编译
-* 3、将fragement添加到页面上
+
+-   1、创建一个空的fragment，将模板元素添加到fragement上
+-   2、将fragement的上的元素进行编译
+-   3、将fragement添加到页面上
 
 当执行Compile实例下compileText执行时，就会实例化Watcher,这样就实现了当vm下的数据发生改变时，就会执行传入的回调函数
+
 ```javascript
 function Compile(vm) {
   this.vm = vm
@@ -246,7 +263,7 @@ Compile.prototype = {
     })
   },
   updateModel(node, val) {
-    node.value = val ? val : ''
+     node.value = typeof val === 'undefined' ? '' : val
   },
   isTextNode(node) {
     return node.nodeType === 3
@@ -267,4 +284,27 @@ Compile.prototype = {
     return str.indexOf('model') > -1
   }
 }
+```
+
+下面写段代码测试
+
+```html
+<div id="app">
+  <input type="text" v-model='name'>
+  <input type="text" v-model.number='number'>
+  <div>{{name}}</div>
+</div>
+```
+
+```javascript
+var test = new Vue({
+  el: "#app",
+  data: {
+    name: 'shibin',
+    number: 123
+  }
+})
+setTimeout(() => {
+  test.name = 'Shibin'
+}, 1000)
 ```
