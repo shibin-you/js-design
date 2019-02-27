@@ -37,6 +37,7 @@ module.exports = {
           children: [
             'book/m/mvvm.md',
             'book/m/mvc.md',
+            'book/m/vue.md'
           ]
         },
       ]
