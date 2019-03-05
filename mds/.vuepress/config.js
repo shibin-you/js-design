@@ -40,6 +40,13 @@ module.exports = {
             'book/m/vue.md'
           ]
         },
+        {
+          title: '正则表达式',
+          collapsable: false,
+          children: [
+            'book/regx/regx.md',
+          ]
+        },
       ]
     }
   }
