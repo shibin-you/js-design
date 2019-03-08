@@ -11,7 +11,7 @@ module.exports = {
     }]
   ],
   themeConfig: {
-    nav: [],
+    nav: [{text:'Gitbub',link:'https://github.com/shibin-you/js-design'}],
     sidebar: {
       '/book': [{
           title: '第一章',
@@ -46,8 +46,15 @@ module.exports = {
           children: [
             'book/regx/regx.md',
           ]
-        },
+        }
       ]
+    },
+    serviceWorker: {
+      updatePopup: true ,
+      updatePopup: {
+         message: "有新内容可用。",
+         buttonText: "刷新"
+      }
     }
   }
 }
